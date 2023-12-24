@@ -1,3 +1,9 @@
+<script>
+	import "../app.css"
+	// import Nav from "../components/Nav.svelte";
+	// import { AppShell } from '@skeletonlabs/skeleton';
+	</script>
+
 <div class="container">
 	<header class="header">
 		<a class="header__title" href="/">SvelteKit + Sanity</a>
@@ -6,7 +12,7 @@
 		<slot />
 	</main>
 	<footer class="footer">
-		<p class="footer__text">
+		<p class="footer__text text-pink-600">
 			Made with <svg
 				data-sanity-icon="heart-filled"
 				width="1em"

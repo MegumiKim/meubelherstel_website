@@ -6,7 +6,7 @@
 		<img class="logos__entry" src="/sanity.svg" alt="Sanity Logo" />
 	</div>
 	<div class="steps">
-		<h2 class="steps__title">Next steps</h2>
+		<h2 class="steps__title text-3xl font-bold underline">Next steps</h2>
 		<ul class="steps__list">
 			<li class="steps__entry">
 				<h3 class="steps__subtitle">Publish a post in your Studio</h3>
