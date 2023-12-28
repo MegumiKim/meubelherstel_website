@@ -24,5 +24,34 @@ export default defineType({
       title: 'Body',
       type: 'blockContent',
     }),
+
+    defineField({
+      name: 'featured',
+      title: 'Featured',
+      type: 'array',
+      description: 'This will be reflected to Services on main page',
+      of: [
+        {
+          name: 'service',
+          title: 'Service',
+          type: 'object',
+          fields: [
+            {
+              name: 'title',
+              title: 'Title',
+              type: 'string',
+            },
+            {
+              name: 'image',
+              title: 'Image',
+              type: 'image',
+              options: {
+                hotspot: true,
+              },
+            },
+          ],
+        },
+      ],
+    }),
   ],
 })

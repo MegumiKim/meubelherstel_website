@@ -60,9 +60,13 @@ export async function getProjects(): Promise<Project[]> {
 }
 
 export async function getHome() {
-	return await client.fetch(groq`*[_type == "home"]{
-		'image':mainImage.asset->url,
-body
+	return await client.fetch(groq`*[_type == "home"] {
+		title,
+		body,
+		'featured':featured[]{
+			title, 
+			'imageUrl':image.asset->url 
+		}
 	}`);
 }
 
