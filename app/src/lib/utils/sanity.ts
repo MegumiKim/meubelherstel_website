@@ -28,6 +28,51 @@ export async function getPost(slug: string): Promise<Post> {
 	});
 }
 
+export async function getProject(slug: string): Promise<Project> {
+	return await client.fetch(
+		groq`*[_type == "project" && slug.current == $slug][0]{
+title, 
+description,
+_id,
+slug,
+'images': images[]{
+	'url': asset->url,
+	'caption': caption
+			}  
+	}`,
+		{
+			slug
+		}
+	);
+}
+
+export async function getProjects(): Promise<Project[]> {
+	return await client.fetch(
+		groq`*[_type == "project"] {
+			title,   
+		'slug':slug.current,
+			'image': images[0]{
+				'url': asset->url,         
+				'caption': caption
+			} 
+		}`
+	);
+}
+
+export async function getHome() {
+	return await client.fetch(groq`*[_type == "home"]{
+		'image':mainImage.asset->url,
+body
+	}`);
+}
+
+export async function getAbout() {
+	return await client.fetch(groq`*[_type == "about"]{
+		title,
+		'image':[],
+body
+	}`);
+}
 export interface Post {
 	_type: 'post';
 	_createdAt: string;
@@ -37,3 +82,30 @@ export interface Post {
 	mainImage?: ImageAsset;
 	body: PortableTextBlock[];
 }
+export interface Project {
+	_type: 'project';
+	title: string;
+	slug: Slug;
+	image?: { url: string };
+	images?: {
+		_key: string;
+		url: string;
+		caption: string;
+	}[];
+	description?: PortableTextBlock[];
+}
+export interface About {
+	_type: 'about';
+	title?: string;
+	mainImage?: ImageAsset;
+	body: PortableTextBlock[];
+}
+// export interface Home {
+// 	// _type: 'post';
+// 	_createdAt: string;
+// 	title?: string;
+// 	slug: Slug;
+// 	excerpt?: string;
+// 	mainImage?: ImageAsset;
+// 	body: PortableTextBlock[];
+// }

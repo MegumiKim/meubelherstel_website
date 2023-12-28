@@ -1,31 +1,34 @@
 <script lang="ts">
-	import { formatDate } from '$lib/utils';
-	import { urlFor } from '$lib/utils/image';
-	import type { Post } from '$lib/utils/sanity';
+	// import { urlFor } from '$lib/utils/image';
+	import type { Project } from '$lib/utils/sanity';
 
-	export let post: Post;
+	export let project: Project;
+	console.log(project);
+	
 </script>
 
 <div class="card">
-	{#if post.mainImage}
+
+	{#if project.image}
+
 		<img
-			class="card__cover"
-			src={urlFor(post.mainImage).width(500).height(300).url()}
-			alt="Cover image for {post.title}"
+			class=""
+			src={(project.image.url)}
+			alt="{project.title}"
 		/>
 	{:else}
-		<div class="card__cover--none" />
+	<img
+	class=""
+	src='/tools2.jpg'
+	alt="{project.title}"
+/>
 	{/if}
 
 	<div class="card__container">
 		<h3 class="card__title">
-			<a class="card__link" href={`/post/${post.slug.current}`}>
-				{post.title}
+			<a class="card__link" href={`/work/${project.slug}`}>
+				{project.title}
 			</a>
 		</h3>
-		<p class="card__excerpt">{post.excerpt}</p>
-		<p class="card__date">
-			{formatDate(post._createdAt)}
-		</p>
 	</div>
 </div>

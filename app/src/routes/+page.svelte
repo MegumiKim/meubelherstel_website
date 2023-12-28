@@ -4,14 +4,16 @@
 	import type { PageData } from './$types';
 
 	export let data: PageData;
+	console.log(data);
+	
 </script>
 
 <section>
 	{#if data.posts.length}
-		{#each data.posts as post}
+		<!-- {#each data.posts as post}
 			<Card {post} />
 		{/each}
-	{:else}
+	{:else} -->
 		<Welcome />
 	{/if}
 </section>

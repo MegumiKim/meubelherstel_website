@@ -1,41 +1,35 @@
-<div class="welcome__container">
-	<div class="logos">
-		<div class="logos__blur" />
-		<img class="logos__entry" src="/svelte.svg" alt="Svelte Logo" />
-		<span class="logos__plus">+</span>
-		<img class="logos__entry" src="/sanity.svg" alt="Sanity Logo" />
-	</div>
-	<div class="steps">
-		<h2 class="steps__title text-3xl font-bold underline">Next steps</h2>
-		<ul class="steps__list">
-			<li class="steps__entry">
-				<h3 class="steps__subtitle">Publish a post in your Studio</h3>
-				<p class="steps__text">Visit the Sanity Studio and publish a new document of type post.</p>
-			</li>
-			<li class="steps__entry">
-				<h3 class="step__title">Dive into the documentation</h3>
-				<p class="steps__text">
-					Check out{' '}
-					<a target="_blank" rel="noopener noreferrer nofollow" href="https://www.sanity.io/docs">
-						the documentation
-					</a>{' '}
-					to learn more about Sanity.
-				</p>
-			</li>
-			<li class="steps__entry">
-				<h3 class="steps__subtitle">Join the Sanity Community</h3>
-				<p class="steps__text">
-					Leverage{' '}
-					<a
-						target="_blank"
-						rel="noopener noreferrer nofollow"
-						href="https://www.sanity.io/exchange/community"
-					>
-						our awesome community
-					</a>
-					, and share tips and discuss!
-				</p>
-			</li>
-		</ul>
-	</div>
+<script lang="ts">
+	import { onMount } from 'svelte';
+	import { getHome } from '$lib/utils/sanity';
+
+
+  export let homeData = {
+    image:"",
+    text: ""
+  };
+
+  onMount(async () => {
+    try {
+      const data = await getHome();
+      if (data) {
+      homeData = data[0]
+        console.log(data);
+      }
+    } catch (error) {
+      console.error(error);
+    }
+  });
+  
+</script>
+
+
+<div class="relative">
+  <img src={homeData.image? homeData.image: "/tools.jpg"} alt="" class="w-full m-auto object-cover md:max-h-96 mainImage">
+  <h1 class="text-5xl font-extrabold my-5 sm:m-0 sm:absolute sm:bottom-0 sm:bg-white sm:p-3 bg-opacity-10">WOODWORK</h1>
 </div>
+
+<style>
+h1{
+  border-radius: 0 15px 0 0;
+}
+</style>

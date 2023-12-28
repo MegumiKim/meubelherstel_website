@@ -68,6 +68,17 @@ body {
 	margin: 0;
 }
 
+/* contact form */
+
+input,
+textarea {
+	border: grey solid 2px;
+	display: block;
+	width: 100%;
+	padding: 5%;
+	text-indent: 10px;
+}
+
 /* Post page */
 .post {
 	width: 100%;
@@ -181,7 +192,7 @@ main {
 .header {
 	display: flex;
 	padding: 0 var(--space-1);
-	border-bottom: 1px solid #ced2d9;
+	/* border-bottom: 1px solid #ced2d9; */
 
 	z-index: 10;
 	background: var(--white);
@@ -202,8 +213,10 @@ main {
 }
 
 .footer {
-	display: flex;
-	justify-content: flex-end;
+	position: sticky;
+	bottom: 0;
+	/* display: flex; */
+	justify-content: center;
 	padding: 0 var(--space-3);
 }
 
@@ -217,7 +230,7 @@ main {
 
 @media (min-width: 575px) {
 	.container {
-		max-width: var(--max-width-1);
+		max-width: 1280px;
 		padding: 0 var(--space-4);
 	}
 
@@ -343,8 +356,8 @@ main {
 /* Card */
 
 .card {
-	display: flex;
-	flex-direction: column;
+	/* display: flex; */
+	/* flex-direction: column; */
 	padding: var(--space-2);
 	padding: 9px;
 	position: relative;
@@ -370,8 +383,8 @@ main {
 
 .card .card__title {
 	font-family: var(--font-family-sans);
-	font-weight: 800;
-	font-size: var(--font-size-7);
+	font-weight: 600;
+	font-size: var(--font-size-5);
 	line-height: var(--line-height-6);
 	letter-spacing: -0.025em;
 	margin: var(--space-3) 0;
