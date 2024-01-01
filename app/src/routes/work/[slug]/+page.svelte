@@ -8,7 +8,7 @@
 
 </script>
 
-<section class="post">
+<section class="post mt-20">
 	<div class="flex flex-col md:flex-row gap-5">
 		{#if data.images?.length}
 			<div class="flex-1">
@@ -31,7 +31,7 @@
 	<div class="post__container">
 		<h1 class="post__title">{data.title}</h1>
 
-			<div class="mt-5">
+			<div class="mt-5 max-w-screen-sm text-xl">
 				<PortableText value={data.description} />
 			</div>
 

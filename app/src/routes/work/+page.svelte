@@ -22,7 +22,7 @@
 <section>
   <h1 class="font-extrabold text-5xl my-10">WORK</h1>
 	{#if projects.length}
-		<div class="grid grid-cols-2">
+		<div class="grid grid-cols-1 sm:grid-cols-3 gap-5">
       {#each projects as project}
         <Card {project} />
       {/each}

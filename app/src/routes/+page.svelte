@@ -51,7 +51,7 @@ console.log(home);
 		{/if}
 	</div>
 		<div class="flex mt-20">
-			<a href="/contact" class="outline mx-auto px-5 py-2 text-xl mb-10">Contact</a>
+			<a href="/contact" class="outline outline-1 mx-auto px-10 py-2 text-xl mb-10 hover:bg-black hover:text-white">Contact</a>
 		</div>
 </section>
 </div>
