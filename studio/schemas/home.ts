@@ -9,45 +9,60 @@ export default defineType({
       name: 'title',
       title: 'Title',
       type: 'string',
+      description: 'Title on the home page',
     }),
 
     defineField({
       name: 'mainImage',
       title: 'Main image',
       type: 'image',
+      description: 'Main image on the home page',
       options: {
         hotspot: true,
       },
     }),
     defineField({
-      name: 'body',
-      title: 'Body',
+      name: 'tagline',
+      title: 'Tag line',
       type: 'blockContent',
+      description: 'Tag line or whatever you want to say on the home page.',
     }),
 
     defineField({
       name: 'featured',
       title: 'Featured',
-      type: 'array',
-      description: 'This will be reflected to Services on main page',
-      of: [
+      type: 'object',
+      description: 'Featured section in home page',
+      fields: [
+        {
+          name: 'heading',
+          title: 'Heading',
+          type: 'string',
+        },
         {
           name: 'service',
           title: 'Service',
-          type: 'object',
-          fields: [
+          type: 'array',
+          of: [
             {
-              name: 'title',
-              title: 'Title',
-              type: 'string',
-            },
-            {
-              name: 'image',
-              title: 'Image',
-              type: 'image',
-              options: {
-                hotspot: true,
-              },
+              name: 'service',
+              title: 'Service',
+              type: 'object',
+              fields: [
+                {
+                  name: 'title',
+                  title: 'Title',
+                  type: 'string',
+                },
+                {
+                  name: 'image',
+                  title: 'Image',
+                  type: 'image',
+                  options: {
+                    hotspot: true,
+                  },
+                },
+              ],
             },
           ],
         },

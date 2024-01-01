@@ -24,8 +24,7 @@
 </script>
 
 
-<div class="container">
-<h1 class="text-5xl font-extrabold my-5">About</h1>
+<div class="my-20">
 <section class="flex flex-col md:flex-row gap-5">
   <div class="flex-1 mx-auto mt-5 sm:my-auto"><img src={aboutData.image} alt="{aboutData.title}" class="w-full m-auto object-cover"></div>
   <div class="flex-1 sm:px-5">

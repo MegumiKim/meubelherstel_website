@@ -3,7 +3,7 @@
 	import type { Project } from '$lib/utils/sanity';
 
 	export let project: Project;
-	console.log(project);
+	// console.log(project);
 	
 </script>
 
