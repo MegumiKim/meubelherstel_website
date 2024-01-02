@@ -18,11 +18,11 @@ console.log(home);
 	<section>
 	
 		<div class="relative">
-			<img src={home.image? home.image: "/tools.jpg"} alt="" class="w-full m-auto object-cover md:max-h-96 mainImage">
-			<h1 class="text-2xl sm:text-5xl font-extrabold my-5 sm:m-0 sm:absolute sm:bottom-0 sm:bg-white sm:p-3 bg-opacity-10">{home.title}</h1>
+			<img src={home.image? home.image: "/tools.jpg"} alt="" class="w-full m-auto object-cover md:max-h-[70vh] mainImage">
+			<h1 class="text-xl sm:text-5xl font-extrabold my-5 sm:m-0 sm:absolute sm:bottom-0 sm:bg-white sm:p-3 bg-opacity-10">{home.title}</h1>
 		</div>
 		{#if home?.tagline}
-	<div class="text-center my-10 text-xl">
+	<div class="text-center my-10 sm:my-20 text-xl sm:text-2xl font-light">
 		<PortableText value={home.tagline}/>
 	</div>
 		{/if}
@@ -35,7 +35,7 @@ console.log(home);
 <section>
 	<div class="sm:my-10 ">
 		{#if home?.featured}
-		<h2 class="text-2xl text-center font-bold my-5">{home.featured.heading}</h2>
+		<h2 class="text-xl text-center font-bold my-5">{home.featured.heading}</h2>
 		<div class="flex flex-col sm:flex-row w-full justify-center gap-8 my-10">
 
 			{#each home.featured.service as item }

@@ -10,7 +10,7 @@
       const data = await getProjects();
       if (data) {
       projects = data
-        console.log(data);
+        // console.log(data);
       }
     } catch (error) {
       console.error(error);
@@ -19,10 +19,10 @@
   
 </script>
 
-<section>
-  <h1 class="font-extrabold text-5xl my-10">WORK</h1>
+<section class="my-10">
+  <h1 class="font-extrabold text-5xl">WORK</h1>
 	{#if projects.length}
-		<div class="grid grid-cols-1 sm:grid-cols-3 gap-5">
+		<div class="grid grid-cols-1 sm:grid-cols-3 gap-5 mt-10">
       {#each projects as project}
         <Card {project} />
       {/each}

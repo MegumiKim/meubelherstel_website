@@ -10,13 +10,13 @@
 
 		<Nav />
 	</header>
-	<main>
+	<main class="">
 		<slot />
 	</main>
-	<!-- <footer class="footer text-slate-400 align-middle text-center flex flex-col">
+	<footer class="footer text-slate-400 align-middle text-center flex flex-col">
 		<p class="footer__text text-center mx-auto">
 			meubelherstel 
 		</p>
 		<a href="https://www.instagram.com/meubelherstel/"><i class="fa-brands fa-instagram"></i></a>
-	</footer> -->
+	</footer>
 </div>
