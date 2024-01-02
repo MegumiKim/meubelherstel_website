@@ -10,7 +10,7 @@
   <div class="flex flex-col align-middle justify-between ">
     
 
-    <button on:click={toggleMenu} class="sm:hidden text-right m-2">
+    <button on:click={toggleMenu} class="sm:hidden text-right m-4 text-2xl">
       {#if showMenu}
       <i class="fa-solid fa-xmark"></i>
     {:else}

@@ -7,28 +7,26 @@
 	
 </script>
 
-<div class="outline outline-1 outline-slate-300 max-h-56">
+<a class=" outline-slate-300 hover:opacity-50 " href={`/work/${project.slug}`}>
 
 	{#if project.image}
 
 		<img
-			class="max-w-full max-h-full object-cover m-auto"
+			class="max-w-full object-cover m-auto"
 			src={(project.image.url)}
 			alt="{project.title}"
 		/>
 	{:else}
 	<img
-	class="max-w-full max-h-full object-cover m-auto"
-	src='/logo.svg'
+	class="max-w-full object-cover m-auto"
+	src='/tools2.jpg'
 	alt="{project.title}"
 />
 	{/if}
 
-	<div class="">
-		<h3 class="font-bold my-3">
-			<a class="card__link" href={`/work/${project.slug}`}>
+
+		<h3 class="font-bold my-3 text-xl text-center">
 				{project.title}
-			</a>
 		</h3>
-	</div>
-</div>
+
+</a>

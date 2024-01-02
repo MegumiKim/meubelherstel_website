@@ -6,7 +6,7 @@
 
 <div class="container">
 	<header class="header flex justify-between ">
-		<a class="header__title" href="/">meubelherstel</a>
+		<a class="header__title mt-4" href="/">meubelherstel</a>
 
 		<Nav />
 	</header>

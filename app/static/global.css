@@ -212,9 +212,9 @@ main {
 	font-size: var(--font-size-3);
 	line-height: var(--line-height-1);
 	padding-left: var(--space-2);
-	margin: var(--space-3) 0;
 	text-decoration: none;
 	color: var(--black);
+	margin: auto 0;
 }
 
 .footer {
