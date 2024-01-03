@@ -9,6 +9,7 @@
 </script>
 
 <section class="post mt-20">
+	{#if data}
 	<div class="flex flex-col md:flex-row gap-5">
 		{#if data.images?.length}
 			<div class="flex-1">
@@ -36,4 +37,8 @@
 			</div>
 
  </div>
+
+ 	{:else}
+ 	<div class="mx-auto mt-28 pr-4 w-36"><img src="./wrench.svg" alt="loading" class="h-20  spinner"></div>
+ {/if}
 </section>

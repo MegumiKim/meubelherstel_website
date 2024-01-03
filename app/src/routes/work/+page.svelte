@@ -22,12 +22,28 @@
 <section class="my-10">
   <h1 class="font-extrabold text-5xl">WORK</h1>
 	{#if projects.length}
-		<div class="grid grid-cols-1 sm:grid-cols-3 gap-5 mt-10">
+		<div class="flex flex-wrap mt-10 gap-5">
       {#each projects as project}
-        <Card {project} />
+          <Card {project} />
       {/each}
     </div>
 	{:else}
-    <p>No Project :-/</p>
+    <div class="mx-auto mt-28 pr-4 w-36"><img src="./wrench.svg" alt="loading" class="h-20  spinner"></div>
 	{/if}
 </section>
+
+<style>
+  .spinner{
+  animation: spin 3s linear infinite; 
+  transform-origin: calc(100% - 1rem) 1rem;
+
+  }
+  @keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+</style>

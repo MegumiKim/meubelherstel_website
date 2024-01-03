@@ -4,7 +4,7 @@ import type { PageLoad } from './$types';
 
 export const load = (async () => {
 	const data = await getHome();
-	console.log(data);
+	// console.log(data);
 
 	if (data) {
 		return {

@@ -5,7 +5,6 @@ import {schemaTypes} from './schemas'
 
 export const projectId = 'egeioo87'
 export const dataset = 'production'
-// console.log(process.env.SANITY_STUDIO_PROJECT_ID)
 
 export default defineConfig({
   name: 'project-name',
