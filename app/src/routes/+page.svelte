@@ -4,16 +4,16 @@
 	// import type { PageData } from './$types';
 
 	import { PortableText } from "@portabletext/svelte";
-	import About from "../components/about/About.svelte";
+	import About from "../components/About.svelte";
 
 	export let data;
 	let home = data.data[0]
-console.log(home);
+// console.log(home);
 
 	
 </script>
 
-<div class="">
+<div>
 
 	<section>
 	
@@ -39,7 +39,7 @@ console.log(home);
 		<div class="flex flex-col sm:flex-row w-full justify-center gap-8 my-10">
 
 			{#each home.featured.service as item }
-			<div class="relative rounded-xl overflow-hidden">
+			<div class="relative rounded-xl overflow-hidden flex-grow min-w-0 ">
 				<div class="absolute inset-0 bg-slate-600 opacity-60 z-10"></div>
 				<img src={item.imageUrl} alt={item.title} class="w-full h-20 sm:h-40 object-cover rounded-xl -z-10">
 				<div class="absolute inset-0 flex items-center justify-center text-white text-xl z-20 font-bold">
@@ -55,8 +55,6 @@ console.log(home);
 		</div>
 </section>
 </div>
-
-
 
 <style>
 	h1{

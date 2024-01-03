@@ -19,7 +19,7 @@
   
 </script>
 
-<section class="my-10">
+<section class="">
   <h1 class="font-extrabold text-5xl">WORK</h1>
 	{#if projects.length}
 		<div class="flex flex-wrap mt-10 gap-5">
