@@ -8,6 +8,7 @@
 
 	export let data;
 	let home = data.data[0]
+	const components = {}
 // console.log(home);
 
 	
@@ -23,7 +24,7 @@
 		</div>
 		{#if home?.tagline}
 	<div class="text-center my-10 sm:my-20 text-xl sm:text-2xl font-light">
-		<PortableText value={home.tagline}/>
+		<PortableText value={home.tagline} components={components}/>
 	</div>
 		{/if}
 	</section>

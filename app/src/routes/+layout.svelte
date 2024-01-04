@@ -11,7 +11,7 @@
 		<Nav />
 	</header>
 	<main class="my-10">
-		     <slot />
+		<slot />
 	</main>
 	<footer class="footer text-slate-400 align-middle text-center flex flex-col">
 		<p class="footer__text text-center mx-auto">

@@ -1,4 +1,5 @@
 import {defineField, defineType} from 'sanity'
+import blockContent from './blockContent'
 
 export default defineType({
   name: 'project',

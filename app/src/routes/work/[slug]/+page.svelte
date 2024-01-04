@@ -1,10 +1,10 @@
 <script lang="ts">
 	import { PortableText } from '@portabletext/svelte';
 	import type { Project } from '$lib/utils/sanity';
-
+	
 	export let data: Project;
+const components = {};
 
-  console.log(data);
 
 </script>
 
@@ -33,7 +33,7 @@
 		<h1 class="post__title">{data.title}</h1>
 
 			<div class="mt-5 max-w-screen-sm text-xl">
-				<PortableText value={data.description} />
+				<PortableText value={data.description} components={components} />
 			</div>
 
  </div>

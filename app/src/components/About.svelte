@@ -5,9 +5,11 @@
 
   export let aboutData = {
     image:"",
-    body: "",
+    body: [],
     title:""
   };
+
+  const components = {}
 
   onMount(async () => {
     try {
@@ -29,7 +31,7 @@
   <div class="flex-1 mx-auto mt-5 sm:my-auto"><img src={aboutData.image} alt="{aboutData.title}" class="w-full m-auto object-cover"></div>
   <div class="flex-1 sm:px-5">
     <h2 class="text-xl font-bold my-5">{aboutData.title}</h2>
-    <PortableText value={aboutData.body} components={aboutData.body}/>
+    <PortableText value={aboutData.body} components={components}/>
   </div>
 </section>
 </div>
