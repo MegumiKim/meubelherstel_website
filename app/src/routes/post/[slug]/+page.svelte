@@ -1,4 +1,4 @@
-<script lang="ts">
+<!-- <script lang="ts">
 	import { PortableText } from '@portabletext/svelte';
 	import { formatDate } from '$lib/utils';
 	import { urlFor } from '$lib/utils/image';
@@ -27,4 +27,4 @@
 			<PortableText value={data.body} />
 		</div>
 	</div>
-</section>
+</section> -->

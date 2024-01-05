@@ -15,17 +15,17 @@ export const client = createClient({
 	apiVersion: '2023-03-20' // date of setup
 });
 
-export async function getPosts(): Promise<Post[]> {
-	return await client.fetch(
-		groq`*[_type == "post" && defined(slug.current)] | order(_createdAt desc)`
-	);
-}
+// export async function getPosts(): Promise<Post[]> {
+// 	return await client.fetch(
+// 		groq`*[_type == "post" && defined(slug.current)] | order(_createdAt desc)`
+// 	);
+// }
 
-export async function getPost(slug: string): Promise<Post> {
-	return await client.fetch(groq`*[_type == "post" && slug.current == $slug][0]`, {
-		slug
-	});
-}
+// export async function getPost(slug: string): Promise<Post> {
+// 	return await client.fetch(groq`*[_type == "post" && slug.current == $slug][0]`, {
+// 		slug
+// 	});
+// }
 
 export async function getProject(slug: string): Promise<Project> {
 	return await client.fetch(
@@ -80,15 +80,27 @@ export async function getAbout() {
 		'image':mainImage.asset -> url
 	}`);
 }
-export interface Post {
-	_type: 'post';
-	_createdAt: string;
-	title?: string;
-	slug: Slug;
-	excerpt?: string;
-	mainImage?: ImageAsset;
-	body: PortableTextBlock[];
+
+export async function getContact() {
+	return await client.fetch(groq`*[_type == "contact"]{
+		title,
+			addressOne,
+			addressTwo,
+			email,
+			phone,
+			message
+	}`);
 }
+
+// export interface Post {
+// 	_type: 'post';
+// 	_createdAt: string;
+// 	title?: string;
+// 	slug: Slug;
+// 	excerpt?: string;
+// 	mainImage?: ImageAsset;
+// 	body: PortableTextBlock[];
+// }
 export interface Project {
 	_type: 'project';
 	title: string;

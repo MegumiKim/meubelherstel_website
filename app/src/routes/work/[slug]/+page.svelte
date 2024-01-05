@@ -8,7 +8,7 @@ const components = {};
 
 </script>
 
-<section class="post mt-20">
+<section class="post">
 	{#if data}
 	<div class="flex flex-col md:flex-row gap-5">
 		{#if data.images?.length}
