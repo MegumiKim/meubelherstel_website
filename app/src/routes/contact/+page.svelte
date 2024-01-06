@@ -44,6 +44,7 @@
       <form class="flex-1 flex flex-col gap-4 sm:max-w-[500px]" action="https://formsubmit.co/kimuramegumi@gmail.com" method="POST">
         <label for="" class="text-gray-500"><span>Naam</span><input class="input h-8 mt-1" type="text" name="name" required></label>
         <label for="" class="text-gray-500"><span>Email</span><input class="input h-8 mt-1" type="email" name="email" required></label>
+        <label for="" class="text-gray-500"><span>Tel <small>(optioneel)</small></span><input class="input h-8 mt-1" type="email" name="tel"></label>
         <label for="" class="text-gray-500"><span>Bericht</span><textarea class="textarea mt-1 pt-1" name="" id="" cols="30" rows="10" required></textarea></label>
         <button type="submit" class="btn btn-xl bg-slate-900 text-white py-4 ">Send</button>
     </form>

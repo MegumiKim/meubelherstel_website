@@ -10,7 +10,7 @@
 
 		<Nav />
 	</header>
-	<main class="my-10">
+	<main class="my-20 sm:my-10">
 		<slot />
 	</main>
 	<footer class="footer text-slate-400 align-middle text-center flex flex-col">
