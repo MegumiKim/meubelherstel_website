@@ -10,6 +10,9 @@ const components = {};
 
 <section class="post">
 	{#if data}
+
+
+
 	<div class="flex flex-col md:flex-row gap-5">
 		{#if data.images?.length}
 			<div class="flex-1">
@@ -26,8 +29,6 @@ const components = {};
 			{/each}
 			</div>
 		{/if}
-
-
 	</div>
 	<div class="post__container">
 		<h1 class="post__title">{data.title}</h1>

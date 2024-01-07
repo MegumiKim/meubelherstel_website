@@ -36,12 +36,12 @@
     <p>{contact.email}</p>
   </div>
   {/if}
-    <p>{contact.message}</p>
+    <p class="font-bold">{contact.message}</p>
   </div>
   
   {/if}
   
-      <form class="flex-1 flex flex-col gap-4 sm:max-w-[500px]" action="https://formsubmit.co/kimuramegumi@gmail.com" method="POST">
+      <form class="flex-1 flex flex-col gap-4 sm:max-w-[500px]" action="https://formsubmit.co/website@meubelherstel.be" method="POST">
         <label for="" class="text-gray-500"><span>Naam</span><input class="input h-8 mt-1" type="text" name="name" required></label>
         <label for="" class="text-gray-500"><span>Email</span><input class="input h-8 mt-1" type="email" name="email" required></label>
         <label for="" class="text-gray-500"><span>Tel <small>(optioneel)</small></span><input class="input h-8 mt-1" type="email" name="tel"></label>
