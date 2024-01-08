@@ -13,36 +13,18 @@
     currentIndex = (currentIndex - 1 + images.length) % images.length;
   }
 
-
-  function handleTouchStart(event) {
-    touchStartX = event.touches[0].clientX;
-  }
-
-  function handleTouchMove(event) {
-    const touchX = event.touches[0].clientX;
-    const deltaX = touchX - touchStartX;
-
-    // Adjust the sensitivity based on your needs
-    if (deltaX > 50) {
-      prev();
-    } else if (deltaX < -50) {
-      next();
-    }
-  }
 </script>
 
 <div>
   <div class="carousel-container"
-  on:touchstart={handleTouchStart}
-  on:touchmove={handleTouchMove}
   >
     {#each images as image, i (image.url)}
       <div class="carousel-slide" style="transform: translateX({i - currentIndex}00%)">
         <img src={image.url} alt={image.caption}>
       </div>
     {/each}
-      <button on:click={prev}><i class="fa-solid fa-circle-chevron-left"></i></button>
-      <button on:click={next}><i class="fa-solid fa-circle-chevron-right"></i></button>
+      <button on:click={prev}><i class="fa-solid fa-circle-chevron-left md:static"></i></button>
+      <button on:click={next}><i class="fa-solid fa-circle-chevron-right md:static"></i></button>
 
   </div>
   <div class="flex-1 flex  gap-4 my-5 justify-center">
@@ -75,7 +57,7 @@
   }
   
   .nav-image{
-    max-height: 50px;
+    max-height: 80px;
     opacity: 50%;
     cursor: pointer;
     justify-content: start;
@@ -86,26 +68,28 @@
   }
 
   .fa-solid{
-    display: none;
+    /* display: none; */
+    background-color:white;
+    padding: 0.5rem;
   }
   .fa-circle-chevron-left{
     position: absolute;
     bottom: 50%;
-    left: 15%;
+    /* left: 15%; */
     font-size: xx-large;
 
   }
   .fa-circle-chevron-right{
     position: absolute;
     bottom: 50%;
-    right: 15%;
+    right: 0%;
     font-size: xx-large;
   }
 
   @media (min-width: 800px) {
-    .fa-solid{
+    /* .fa-solid{
     display: block;
-  }
+  } */
 
   img{
     max-height: 500px;
