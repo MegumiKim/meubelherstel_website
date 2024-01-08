@@ -55,6 +55,7 @@ export async function getHome() {
 			'mainImage':mainImage.asset -> url,
 			service[]{
 				title,
+				projectSlug,
 			'imageUrl':image.asset->url 
 			}
 			}}

@@ -20,7 +20,7 @@
 </script>
 
 <section class="">
-  <h1 class="font-extrabold text-5xl">WORK</h1>
+  <h1 class="font-extrabold text-5xl">Projecten</h1>
 	{#if projects.length}
 		<div class="flex flex-wrap mt-10 gap-5">
       {#each projects as project}

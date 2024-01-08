@@ -25,14 +25,14 @@ export default defineType({
       name: 'tagline',
       title: 'Tag line',
       type: 'blockContent',
-      description: 'Tag line or whatever you want to say on the home page.',
+      description: 'Tag line on the home page below the main image.',
     }),
 
     defineField({
       name: 'featured',
       title: 'Featured',
       type: 'object',
-      description: 'Featured section in home page',
+      description: 'Features section on the front page below "about" section',
       fields: [
         {
           name: 'heading',
@@ -53,6 +53,12 @@ export default defineType({
                   name: 'title',
                   title: 'Title',
                   type: 'string',
+                },
+                {
+                  name: 'projectSlug',
+                  title: 'Project slug',
+                  type: 'string',
+                  description: 'Slug of the project to link to. Example:small-roof-for-beehive',
                 },
                 {
                   name: 'image',

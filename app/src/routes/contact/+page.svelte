@@ -13,7 +13,7 @@
   {#if contact}
 
   <div class="flex-1 space-y-6">
-    <h2 class="font-bold text-lg">{contact.title}</h2>
+    <h2 class="font-extrabold text-xl">{contact.title}</h2>
 {#if contact.addressOne}
 <div>
       <h3 class="font-bold">Adres</h3>
