@@ -39,4 +39,7 @@ The following commands are meant to be run in **both** the `/app` and `/studio` 
 
 Your SvelteKit app should now be running on [http://localhost:5173/](http://localhost:5173/) and Studio on [http://localhost:3333/](http://localhost:3333/).
 
-_Feel free to move each of the folders to their own location and check them into version control._
+## Contact
+
+Please reach out here:
+[Megumi's GitHub](https://github.com/MegumiKim)

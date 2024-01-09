@@ -1,6 +1,5 @@
 <script lang="ts">
 	import type { Contact } from '$lib/utils/sanity.js';
-
 	export let data: { data: Contact[] };
 	const contact = data.data?.[0];
 </script>
@@ -39,7 +38,7 @@
 
 		<form
 			class="flex-1 flex flex-col gap-4 sm:max-w-[500px]"
-			action="https://formsubmit.co/website@meubelherstel.be"
+			action="https://formsubmit.co/d726fb6880179208d9663c1c89832491"
 			method="POST"
 		>
 			<label for="" class="text-gray-500"
