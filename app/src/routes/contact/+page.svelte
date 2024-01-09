@@ -1,12 +1,13 @@
-<script>
+<script lang="ts">
+	import type { Contact } from '$lib/utils/sanity.js';
 
-  export let data;
-  const contact = data.data[0]
+  export let data: { data: Contact[] };
+  const contact= data.data?.[0];
 
 </script>
 
 
-<div class="">
+<div>
   <h1 class="text-5xl font-extrabold mb-10">Contact</h1>
 
 <div class="flex flex-col sm:flex-row w-full gap-10">

@@ -18,15 +18,18 @@ export const client = createClient({
 export async function getProject(slug: string): Promise<Project> {
 	return await client.fetch(
 		groq`*[_type == "project" && slug.current == $slug][0]{
-title, 
-description,
-_id,
-slug,
-'images': images[]{
-	'url': asset->url,
-	'caption': caption
+			title, 
+			description,
+			_id,
+			slug,
+			location,
+			date,
+			category,
+			'images': images[]{
+				'url': asset->url,
+				'caption': caption
 			}  
-	}`,
+		}`,
 		{
 			slug
 		}
@@ -37,7 +40,7 @@ export async function getProjects(): Promise<Project[]> {
 	return await client.fetch(
 		groq`*[_type == "project"] {
 			title,   
-		'slug':slug.current,
+			'slug':slug.current,
 			'image': images[0]{
 				'url': asset->url,         
 				'caption': caption
@@ -48,12 +51,12 @@ export async function getProjects(): Promise<Project[]> {
 
 export async function getHome() {
 	return await client.fetch(groq`*[_type == "home"]{
-		title,
+			title,
 			tagline,
 			featured{
 			heading,
 			'mainImage':mainImage.asset -> url,
-			service[]{
+				service[]{
 				title,
 				projectSlug,
 			'imageUrl':image.asset->url 
@@ -65,36 +68,30 @@ export async function getHome() {
 export async function getAbout() {
 	return await client.fetch(groq`*[_type == "about"]{
 		title,
-			body,
+		body,
 		'image':mainImage.asset -> url
 	}`);
 }
 
-export async function getContact() {
+export async function getContact(): Promise<Contact> {
 	return await client.fetch(groq`*[_type == "contact"]{
 		title,
-			addressOne,
-			addressTwo,
-			email,
-			phone,
-			message
+		addressOne,
+		addressTwo,
+		email,
+		phone,
+		message
 	}`);
 }
 
-// export interface Post {
-// 	_type: 'post';
-// 	_createdAt: string;
-// 	title?: string;
-// 	slug: Slug;
-// 	excerpt?: string;
-// 	mainImage?: ImageAsset;
-// 	body: PortableTextBlock[];
-// }
 export interface Project {
 	_type: 'project';
 	title: string;
 	slug: Slug;
-	image?: { url: string };
+	category?: string;
+	date?: string;
+	location?: string;
+	image?: { url: string; caption: string };
 	images?: {
 		_key: string;
 		url: string;
@@ -103,17 +100,37 @@ export interface Project {
 	description?: PortableTextBlock[];
 }
 export interface About {
-	_type: 'about';
-	title?: string;
-	mainImage?: ImageAsset;
+	// _type: 'about';
+	title: string;
 	body: PortableTextBlock[];
+	image: string;
 }
-// export interface Home {
-// 	// _type: 'post';
-// 	_createdAt: string;
-// 	title?: string;
-// 	slug: Slug;
-// 	excerpt?: string;
-// 	mainImage?: ImageAsset;
-// 	body: PortableTextBlock[];
-// }
+
+export interface Home {
+	title: string;
+	tagline: string;
+	featured: {
+		heading: string;
+		mainImage: string; // Assuming mainImage is a string URL
+		service: {
+			title: string;
+			projectSlug: string;
+			imageUrl: string; // Assuming imageUrl is a string URL
+		}[];
+	}[];
+}
+
+export interface Contact {
+	title: string;
+	addressOne: string;
+	addressTwo: string;
+	email: string;
+	phone: string;
+	message: string;
+}
+
+export interface About {
+	title: string;
+	body: PortableTextBlock[];
+	image: string;
+}

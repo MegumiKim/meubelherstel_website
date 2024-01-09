@@ -9,7 +9,7 @@ export default defineType({
     defineField({
       name: 'title',
       title: 'Title',
-      type: 'text',
+      type: 'string',
     }),
     defineField({
       description: 'Slug is required to create a route to the project-specific page',
@@ -23,14 +23,30 @@ export default defineType({
       },
     }),
     defineField({
+      name: 'category',
+      title: 'Project Category',
+      type: 'string',
+    }),
+    defineField({
+      name: 'location',
+      title: 'Location',
+      type: 'string',
+    }),
+    defineField({
+      name: 'date',
+      title: 'Date',
+      type: 'date',
+    }),
+    defineField({
       name: 'description',
-      title: 'Description',
+      title: 'Project Description',
       type: 'blockContent',
     }),
     defineField({
       name: 'images',
       title: 'Project Images',
       type: 'array',
+      description: 'Please add at least one project image.',
       of: [
         {
           title: 'Image',

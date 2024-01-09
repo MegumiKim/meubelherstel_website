@@ -1,7 +1,7 @@
 <script lang="ts">
 	import type { Project } from '$lib/utils/sanity';
 	export let project: Project;
-	
+
 </script>
 
 <a class=" outline-slate-300 max-h-[300px] sm:h-[300px] relative overflow-hidden" href={`/work/${project.slug}`}>
@@ -9,14 +9,14 @@
 	{#if project.image}
 			<img
 				class="object-cover w-full h-full align-middle rounded"
-				src={(project.image.url)}
-				alt="{project.title}"
+				src={project.image.url}
+				alt={project.image.caption? project.image.caption: project.title}
 			/>
 	{:else}
 	<img
-	class="max-w-full object-cover m-auto"
+	class="object-cover w-full h-full align-middle rounded"
 	src='/tools2.jpg'
-	alt="{project.title}"
+	alt={project.title}
 />
 	{/if}
 		<h3 class="sm:hidden absolute bottom-0 px-5 bg-white bg-opacity-70 font-bold my-3 text-2xl text-center">

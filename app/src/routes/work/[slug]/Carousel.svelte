@@ -1,14 +1,10 @@
 <script lang="ts">
-  let currentIndex = 0;
-  let touchStartX = 0;
-
   export let images:{url:string,caption:string}[];
+  let currentIndex = 0;
   
-
   function next() {
     currentIndex = (currentIndex + 1) % images.length; 
   }
-
   function prev() {
     currentIndex = (currentIndex - 1 + images.length) % images.length;
   }
@@ -16,17 +12,19 @@
 </script>
 
 <div>
-  <div class="carousel-container"
-  >
+  <div class="carousel-container">
     {#each images as image, i (image.url)}
       <div class="carousel-slide" style="transform: translateX({i - currentIndex}00%)">
         <img src={image.url} alt={image.caption}>
       </div>
     {/each}
+
+    {#if images.length > 1}
       <button on:click={prev}><i class="fa-solid fa-circle-chevron-left md:static"></i></button>
       <button on:click={next}><i class="fa-solid fa-circle-chevron-right md:static"></i></button>
-
+    {/if}
   </div>
+  {#if images.length > 1}
   <div class="flex-1 flex  gap-4 my-5 justify-center">
     {#each images as image, i }
     <button  on:click={() => (currentIndex = i)}>
@@ -35,6 +33,7 @@
     </button>
   {/each}
   </div>
+  {/if}
 </div>
 
 <style>
@@ -87,10 +86,6 @@
   }
 
   @media (min-width: 800px) {
-    /* .fa-solid{
-    display: block;
-  } */
-
   img{
     max-height: 500px;
   }

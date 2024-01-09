@@ -10,7 +10,6 @@
       const data = await getProjects();
       if (data) {
       projects = data
-        // console.log(data);
       }
     } catch (error) {
       console.error(error);
