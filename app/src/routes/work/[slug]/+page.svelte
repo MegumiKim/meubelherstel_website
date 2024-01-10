@@ -27,7 +27,7 @@
 					<p><i class="fa-solid fa-location-dot" /> {data.location}</p>
 				{/if}
 			</div>
-			<div class="mx-auto mt-5 max-w-screen-sm text-xl">
+			<div class="mx-auto mt-5 max-w-screen-sm text-xl font-light">
 				<PortableText value={data.description} {components} />
 			</div>
 		</div>

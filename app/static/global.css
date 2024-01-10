@@ -76,7 +76,7 @@ textarea {
 	display: block;
 	width: 100%;
 	padding: 10%;
-	/* text-indent: 10px; */
+	border-radius: 5px;
 }
 
 /* Post page */

@@ -13,7 +13,7 @@
 				<h2 class="font-extrabold text-xl">{contact.title}</h2>
 				{#if contact.addressOne}
 					<div>
-						<h3 class="font-bold">Adres</h3>
+						<h3 class="font-bold text-xl">Adres</h3>
 						<p>{contact.addressOne}</p>
 						<p>{contact.addressTwo ? contact.addressTwo : ''}</p>
 					</div>
@@ -21,23 +21,22 @@
 
 				{#if contact.phone}
 					<div>
-						<h3 class="font-bold">Tel</h3>
+						<h3 class="font-bold text-xl">Tel</h3>
 						<p>{contact.phone}</p>
 					</div>
 				{/if}
 
 				{#if contact.email}
 					<div>
-						<h3 class="font-bold">email</h3>
+						<h3 class="font-bold text-xl">email</h3>
 						<p>{contact.email}</p>
 					</div>
 				{/if}
 				<p class="font-bold">{contact.message}</p>
 			</div>
 		{/if}
-
 		<form
-			class="flex-1 flex flex-col gap-4 sm:max-w-[500px]"
+			class="flex-1 flex flex-col gap-3 sm:max-w-[500px] text-lg"
 			action="https://formsubmit.co/d726fb6880179208d9663c1c89832491"
 			method="POST"
 		>
@@ -46,7 +45,7 @@
 			>
 			<label for="" class="text-gray-500"
 				><span>Email</span><input
-					class="input h-8 mt-1"
+					class="input h-8"
 					type="email"
 					name="email"
 					required
@@ -54,23 +53,33 @@
 			>
 			<label for="" class="text-gray-500"
 				><span>Tel <small>(optioneel)</small></span><input
-					class="input h-8 mt-1"
+					class="input h-8"
 					type="email"
 					name="tel"
 				/></label
 			>
 			<label for="" class="text-gray-500"
 				><span>Bericht</span><textarea
-					class="textarea mt-1 p-1"
+					class="textarea p-2"
 					name="message"
-					cols="15"
-					rows="10"
+					cols="20"
+					rows="7"
 					required
 				/></label
 			>
 			<input type="hidden" name="_next" value="https://meubelherstel.vercel.app/thankyou" />
 			<input type="hidden" name="_captcha" value="false" />
-			<button type="submit" class="btn btn-xl bg-slate-900 text-white py-4">Send</button>
+			<button type="submit" class="btn btn-xl bg-slate-900 text-white py-4 rounded-[5px]">Versturen</button>
 		</form>
 	</div>
 </div>
+
+<style>
+	.input{
+		text-indent: 10px;
+	}
+
+	p{
+		font-size: 1.1rem;
+	}
+</style>

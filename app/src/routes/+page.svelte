@@ -58,12 +58,18 @@
 				</div>
 			{/if}
 		</div>
-		<div class="flex mt-20">
+		<div class="flex flex-col sm:flex-row mt-20 gap-10 justify-center">
+			<a
+			href="/work"
+			class="outline outline-1 px-10 py-2 text-xl text-center hover:bg-black hover:text-white rounded"
+			>Projecten</a
+		>
 			<a
 				href="/contact"
-				class="outline outline-1 mx-auto px-10 py-2 text-xl mb-10 hover:bg-black hover:text-white"
+				class="outline outline-1 px-10 py-2 text-xl text-center hover:bg-black hover:text-white rounded"
 				>Contact</a
 			>
+
 		</div>
 	</section>
 </div>

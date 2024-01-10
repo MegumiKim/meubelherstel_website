@@ -29,8 +29,10 @@
 			<img src={aboutData.image} alt={aboutData.title} class="w-full m-auto object-cover" />
 		</div>
 		<div class="flex-1 sm:px-5">
-			<h2 class="text-xl font-bold my-5">{aboutData.title}</h2>
-			<PortableText value={aboutData.body} {components} />
+			<h2 class="text-2xl font-bold my-5 ">{aboutData.title}</h2>
+			<div class="text-xl leading-relaxed font-light">
+				<PortableText value={aboutData.body} {components} />
+			</div>
 		</div>
 	</section>
 </div>
