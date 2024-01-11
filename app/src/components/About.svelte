@@ -30,7 +30,7 @@
 		</div>
 		<div class="flex-1 sm:px-5">
 			<h2 class="text-2xl font-bold my-5 ">{aboutData.title}</h2>
-			<div class="text-xl leading-relaxed font-light">
+			<div class="text-lg leading-snug font-light">
 				<PortableText value={aboutData.body} {components} />
 			</div>
 		</div>

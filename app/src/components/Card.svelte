@@ -16,7 +16,7 @@
 	{:else}
 		<img
 			class="object-cover w-full h-full align-middle rounded"
-			src="/tools2.jpg"
+			src="/placeholder.jpg"
 			alt={project.title}
 		/>
 	{/if}
