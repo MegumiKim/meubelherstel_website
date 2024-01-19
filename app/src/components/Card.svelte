@@ -4,7 +4,7 @@
 </script>
 
 <a
-	class=" outline-slate-300 max-h-[300px] sm:h-[300px] relative overflow-hidden"
+	class="outline-slate-300 max-h-80 sm:h-[400px] relative overflow-hidden sm:aspect-square"
 	href={`/work/${project.slug}`}
 >
 	{#if project.image}

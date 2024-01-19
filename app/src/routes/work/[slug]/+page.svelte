@@ -2,6 +2,7 @@
 	import { PortableText } from '@portabletext/svelte';
 	import type { Project } from '$lib/utils/sanity';
 	import Carousel from './Carousel.svelte';
+	import Spinner from '../../../components/Spinner.svelte';
 
 	export let data: Project;
 	const components = {};
@@ -32,9 +33,7 @@
 			</div>
 		</div>
 	{:else}
-		<div class="mx-auto mt-28 pr-4 w-36">
-			<img src="./wrench.svg" alt="loading" class="h-20 spinner" />
-		</div>
+		<Spinner />
 	{/if}
 </section>
 
