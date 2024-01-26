@@ -1,5 +1,6 @@
 <script lang="ts">
 	import type { Contact } from '$lib/utils/sanity.js';
+import ContactForm from '../../components/ContactForm.svelte';
 	export let data: { data: Contact[] };
 	const contact = data.data?.[0];
 </script>
@@ -35,7 +36,9 @@
 				<p class="font-bold">{contact.message}</p>
 			</div>
 		{/if}
-		<form
+
+		<ContactForm />
+		<!-- <form
 			class="flex-1 flex flex-col gap-3 sm:max-w-[500px] text-lg"
 			action="https://formsubmit.co/d726fb6880179208d9663c1c89832491"
 			method="POST"
@@ -70,7 +73,7 @@
 			<input type="hidden" name="_next" value="https://meubelherstel.vercel.app/thankyou" />
 			<input type="hidden" name="_captcha" value="false" />
 			<button type="submit" class="btn btn-xl bg-slate-900 text-white py-4 rounded-[5px]">Versturen</button>
-		</form>
+		</form> -->
 	</div>
 </div>
 
