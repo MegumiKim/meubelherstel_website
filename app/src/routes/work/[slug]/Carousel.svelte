@@ -1,5 +1,5 @@
 <script lang="ts">
-	export let images: { url: string; caption: string }[];
+	export let images: { url: string; altText: string }[];
 	let currentIndex = 0;
 
 	function next() {
@@ -14,7 +14,7 @@
 	<div class="carousel-container">
 		{#each images as image, i (image.url)}
 			<div class="carousel-slide" style="transform: translateX({i - currentIndex}00%)">
-				<img src={image.url} alt={image.caption} />
+				<img src={image.url} alt={image.altText ? image.altText:"project details"} />
 			</div>
 		{/each}
 
@@ -29,7 +29,7 @@
 				<button on:click={() => (currentIndex = i)}>
 					<img
 						src={image.url}
-						alt={image.caption}
+						alt={image.altText ? image.altText:"project details"}
 						class="nav-image {i === currentIndex ? 'active' : ''}"
 					/>
 				</button>

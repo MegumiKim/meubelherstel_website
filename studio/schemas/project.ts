@@ -55,15 +55,20 @@ export default defineType({
           options: {
             hotspot: true, // <-- Defaults to false
           },
-          fields: [
-            {
-              name: 'caption',
-              type: 'string',
-              title: 'Caption',
-            },
-          ],
         },
       ],
     }),
   ],
+  preview: {
+    select: {
+      title: 'title',
+      media: 'images[0]', // Select the first image from the images array
+    },
+    prepare({title, media}) {
+      return {
+        title,
+        media,
+      }
+    },
+  },
 })

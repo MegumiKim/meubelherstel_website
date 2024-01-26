@@ -27,7 +27,7 @@ export async function getProject(slug: string): Promise<Project> {
 			category,
 			'images': images[]{
 				'url': asset->url,
-				'caption': caption
+				'altText': asset->altText
 			}  
 		}`,
 		{
@@ -43,7 +43,7 @@ export async function getProjects(): Promise<Project[]> {
 			'slug':slug.current,
 			'image': images[0]{
 				'url': asset->url,         
-				'caption': caption
+				'altText': asset->altText
 			} 
 		}`
 	);
@@ -91,11 +91,11 @@ export interface Project {
 	category?: string;
 	date?: string;
 	location?: string;
-	image?: { url: string; caption: string };
+	image?: { url: string; altText: string };
 	images?: {
 		_key: string;
 		url: string;
-		caption: string;
+		altText: string;
 	}[];
 	description?: PortableTextBlock[];
 }

@@ -1,6 +1,9 @@
 <script lang="ts">
 	import type { Project } from '$lib/utils/sanity';
 	export let project: Project;
+
+	console.log(project.image);
+	
 </script>
 
 <a
@@ -11,7 +14,7 @@
 		<img
 			class="object-cover w-full h-full align-middle rounded"
 			src={project.image.url}
-			alt={project.image.caption ? project.image.caption : project.title}
+			alt={project.image.altText ? project.image.altText : project.title}
 		/>
 	{:else}
 		<img
