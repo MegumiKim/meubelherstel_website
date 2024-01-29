@@ -1,4 +1,6 @@
 <script>
+	import { redirect } from "@sveltejs/kit";
+
   let name = '';
   let tel = ''
   let email = '';
@@ -9,21 +11,17 @@
 
   function validateForm() {
     formErrors = {};
-
     if (name.trim() === '') {
       formErrors.name = 'Name is required';
     }
-
     if (email.trim() === '') {
       formErrors.email = 'Email is required';
     } else if (!/\S+@\S+\.\S+/.test(email)) {
       formErrors.email = 'Email is invalid';
     }
-
     if (message.trim() === '') {
       formErrors.message = 'Message is required';
     }
-
     return Object.keys(formErrors).length === 0;
   }
 
@@ -38,7 +36,7 @@
     const formData = { name, email, message, tel };
     // action="https://formsubmit.co/d726fb6880179208d9663c1c89832491"
     try {
-      const response = await fetch('https://formspree.io/f/mrgnekjz', {
+      const response = await fetch('https://formspree.io/f/xoqgjkyp', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -51,11 +49,13 @@
       }
 
       const result = await response.json();
-      submissionResponse = 'Form submitted successfully!';
       console.log(result);
+      
+      window.location.href = '/thankyou/';
+
     } catch (error) {
       console.error('Submit Error:', error);
-      submissionResponse = 'Failed to submit form.';
+      submissionResponse = 'Failed to submit form. Please send an email or call Wim directly.';
     } finally {
       isSubmitting = false;
       name = '';
@@ -92,14 +92,12 @@ on:submit|preventDefault={handleSubmit}
 <label for="" class="text-gray-500"
   ><span>Tel <small>(optioneel)</small></span><input
     class="input h-8"
-    type="number"
+    type="string"
     name="tel"
     bind:value={tel} 
   /></label
 >
-<!-- {#if formErrors.tel}
-<p class="error">{formErrors.tel}</p>
-{/if} -->
+
 <label for="" class="text-gray-500"
   ><span>Bericht</span><textarea
     class="textarea p-2"
@@ -113,8 +111,6 @@ on:submit|preventDefault={handleSubmit}
 {#if formErrors.message}
 <p class="error">{formErrors.message}</p>
 {/if}
-<!-- <input type="hidden" name="_next" value="https://meubelherstel.vercel.app/thankyou" />
-<input type="hidden" name="_captcha" value="false" /> -->
 <button type="submit" class="btn btn-xl bg-slate-900 text-white py-4 rounded-[5px]"
 disabled={isSubmitting}
 > {#if isSubmitting}Submitting...{:else}Versturen{/if}</button>
