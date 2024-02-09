@@ -43,6 +43,7 @@
 		display: flex;
 		overflow: hidden;
 		position: relative;
+align-items: center;
 	}
 
 	.carousel-slide {
