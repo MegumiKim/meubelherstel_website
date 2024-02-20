@@ -21,7 +21,7 @@
 <section class="">
 	<h1 class="font-extrabold text-5xl">Projecten</h1>
 	{#if projects.length}
-		<div class="flex flex-wrap mt-10 gap-5">
+		<div class="flex flex-wrap mt-10 gap-5 justify-center sm:justify-start">
 			{#each projects as project}
 				<Card {project} />
 			{/each}

@@ -1,19 +1,23 @@
 <script lang="ts">
 	import { PortableText } from '@portabletext/svelte';
 	import About from '../components/About.svelte';
+	import Image from '../components/Image.svelte';
 
 	export let data;
 	let home = data.data[0];
 	const components = {};
+
+	console.log(home);
+	
 </script>
 
 <div>
 	<section>
 		<div class="relative">
+	<!-- <Image data={home.image} alt={home.title} /> -->
 			<img
-				src={home.image ? home.image : '/tools.jpg'}
+				src={home.mainImage ? home.mainImage : '/tools.jpg'}
 				alt=""
-				class="w-full m-auto object-cover md:max-h-[70vh] mainImage"
 			/>
 			<h1
 				class="text-xl sm:text-5xl font-extrabold my-5 sm:m-0 sm:absolute sm:bottom-0 sm:bg-white sm:p-4 bg-opacity-10"
@@ -48,6 +52,7 @@
 								alt={item.title}
 								class="w-full h-20 sm:h-40 object-cover rounded-xl -z-10"
 							/>
+							<!-- <Image data={item.imageUrl} alt={item.title} /> -->
 							<div
 								class="absolute inset-0 flex items-center justify-center text-white text-xl z-20 font-bold"
 							>

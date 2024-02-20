@@ -1,4 +1,6 @@
 <script lang="ts">
+	import Image from "../../../components/Image.svelte";
+
 	export let images: { url: string; altText: string }[];
 	let currentIndex = 0;
 
@@ -14,7 +16,7 @@
 	<div class="carousel-container">
 		{#each images as image, i (image.url)}
 			<div class="carousel-slide" style="transform: translateX({i - currentIndex}00%)">
-				<img src={image.url} alt={image.altText ? image.altText:"project details"} />
+				<Image data={image.url} alt={image.altText ? image.altText:"project details"}/>
 			</div>
 		{/each}
 
@@ -24,14 +26,11 @@
 		{/if}
 	</div>
 	{#if images.length > 1}
-		<div class="flex-1 flex gap-4 my-5 justify-center">
+		<div class="flex-1 gap-4 my-5 slide-nav">
 			{#each images as image, i}
-				<button on:click={() => (currentIndex = i)}>
-					<img
-						src={image.url}
-						alt={image.altText ? image.altText:"project details"}
-						class="nav-image {i === currentIndex ? 'active' : ''}"
-					/>
+				<button on:click={() => (currentIndex = i)} class="nav-image {i === currentIndex ? 'active' : ''}">
+						<Image data={image.url} alt={image.altText ? image.altText:"project details"}
+						/>
 				</button>
 			{/each}
 		</div>
@@ -43,7 +42,11 @@
 		display: flex;
 		overflow: hidden;
 		position: relative;
-align-items: center;
+		align-items: center;
+		max-width: 100%;
+		max-height: 500px;
+		margin: auto;
+		border-radius: 10px;
 	}
 
 	.carousel-slide {
@@ -52,17 +55,16 @@ align-items: center;
 		transition: transform 0.5s ease-in-out;
 	}
 
-	img {
-		margin: auto;
-		max-width: 100%;
-		max-height: 300px;
-	}
-
-	.nav-image {
+	.slide-nav {
 		max-height: 80px;
+		display: flex;
+		justify-items: start;
+	}
+	.nav-image {
 		opacity: 50%;
 		cursor: pointer;
-		justify-content: start;
+		aspect-ratio: 1/1;
+		max-width: 100px;
 	}
 
 	.active {
@@ -70,14 +72,12 @@ align-items: center;
 	}
 
 	.fa-solid {
-		/* display: none; */
 		background-color: white;
 		padding: 0.5rem;
 	}
 	.fa-circle-chevron-left {
 		position: absolute;
 		bottom: 50%;
-		/* left: 15%; */
 		font-size: xx-large;
 	}
 	.fa-circle-chevron-right {
@@ -88,9 +88,6 @@ align-items: center;
 	}
 
 	@media (min-width: 800px) {
-		img {
-			max-height: 500px;
-		}
 
 		.nav-image {
 			max-height: 100px;

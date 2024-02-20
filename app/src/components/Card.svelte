@@ -1,30 +1,23 @@
 <script lang="ts">
 	import type { Project } from '$lib/utils/sanity';
+	import Image from './Image.svelte';
 	export let project: Project;
-
-	console.log(project.image);
 	
 </script>
 
 <a
-	class="outline-slate-300 max-h-80 sm:h-[400px] relative overflow-hidden sm:aspect-square"
+	class="outline-slate-300 relative overflow-hidden aspect-square max-h-80 sm:h-[400px]"
 	href={`/work/${project.slug}`}
 >
 	{#if project.image}
-		<img
-			class="object-cover w-full h-full align-middle rounded"
-			src={project.image.url}
-			alt={project.image.altText ? project.image.altText : project.title}
-		/>
+	<div class="">
+		<Image data={project.image.url} alt={project.image.altText}/>
+	</div>
 	{:else}
-		<img
-			class="object-cover w-full h-full align-middle rounded"
-			src="/placeholder.jpg"
-			alt={project.title}
-		/>
+	<Image data="/placeholder.jpg" alt={project.title}/>
 	{/if}
 	<h3
-		class="sm:hidden absolute bottom-0 px-5 bg-white bg-opacity-70 font-bold my-3 text-2xl text-center"
+		class="sm:hidden w-full absolute bottom-0 px-5 bg-white bg-opacity-70 font-bold my-3 text-2xl text-center"
 	>
 		{project.title}
 	</h3>
