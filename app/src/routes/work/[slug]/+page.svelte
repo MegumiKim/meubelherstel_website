@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { PortableText } from '@portabletext/svelte';
-	import type { Project } from '$lib/utils/sanity';
+	import type { Project } from '$lib/queries/sanity';
 	import Carousel from './Carousel.svelte';
 	import Spinner from '../../../components/Spinner.svelte';
 

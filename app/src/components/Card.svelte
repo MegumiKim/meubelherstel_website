@@ -1,7 +1,9 @@
 <script lang="ts">
-	import type { Project } from '$lib/utils/sanity';
+	import type { Project } from '$lib/queries/sanity';
 	import Image from './Image.svelte';
 	export let project: Project;
+	console.log(project);
+	
 	
 </script>
 
@@ -11,7 +13,7 @@
 >
 	{#if project.image}
 	<div class="">
-		<Image data={project.image.url} alt={project.image.altText}/>
+		<Image data={project.image} alt={project.image.altText}/>
 	</div>
 	{:else}
 	<Image data="/placeholder.jpg" alt={project.title}/>
@@ -23,8 +25,8 @@
 	</h3>
 </a>
 
-<style>
+<!-- <style>
 	a:hover > h3 {
 		display: block;
 	}
-</style>
+</style> -->

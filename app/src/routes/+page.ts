@@ -1,4 +1,4 @@
-import { getHome } from '$lib/utils/sanity';
+import { getHome } from '$lib/queries/sanity';
 import { error } from '@sveltejs/kit';
 import type { PageLoad } from './$types';
 

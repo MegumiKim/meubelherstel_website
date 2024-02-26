@@ -1,21 +1,17 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
-	import { getProjects, type Project } from '$lib/utils/sanity';
+	import { getProjects, type Project } from '$lib/queries/sanity';
 	import Card from '../../components/Card.svelte';
 	import Spinner from '../../components/Spinner.svelte';
 
-	export let projects: Project[] = [];
+	export let data;
+let projects = data.data;
+console.log(projects);
 
-	onMount(async () => {
-		try {
-			const data = await getProjects();
-			if (data) {
-				projects = data;
-			}
-		} catch (error) {
-			console.error(error);
-		}
-	});
+
+
+
+	
 </script>
 
 <section class="">

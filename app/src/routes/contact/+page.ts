@@ -1,4 +1,4 @@
-import { getContact } from '$lib/utils/sanity';
+import { getContact } from '$lib/queries/sanity';
 import { error } from '@sveltejs/kit';
 import type { PageLoad } from './$types';
 

@@ -14,11 +14,11 @@
 <div>
 	<section>
 		<div class="relative">
-	<!-- <Image data={home.image} alt={home.title} /> -->
-			<img
+	<Image data={home.mainImage} alt={home.title} />
+			<!-- <img
 				src={home.mainImage ? home.mainImage : '/tools.jpg'}
 				alt=""
-			/>
+			/> -->
 			<h1
 				class="text-xl sm:text-5xl font-extrabold my-5 sm:m-0 sm:absolute sm:bottom-0 sm:bg-white sm:p-4 bg-opacity-10"
 			>
@@ -82,5 +82,11 @@
 <style>
 	h1 {
 		border-radius: 0 15px 0 0;
+	}
+
+	img {
+		object-fit: cover;
+		height: 100%;
+		width: 100%;
 	}
 </style>

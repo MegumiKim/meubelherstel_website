@@ -16,7 +16,7 @@
 	<div class="carousel-container">
 		{#each images as image, i (image.url)}
 			<div class="carousel-slide" style="transform: translateX({i - currentIndex}00%)">
-				<Image data={image.url} alt={image.altText ? image.altText:"project details"}/>
+				<Image data={image} alt={image.altText ? image.altText:"project details"}/>
 			</div>
 		{/each}
 
@@ -29,7 +29,7 @@
 		<div class="flex-1 gap-4 my-5 slide-nav">
 			{#each images as image, i}
 				<button on:click={() => (currentIndex = i)} class="nav-image {i === currentIndex ? 'active' : ''}">
-						<Image data={image.url} alt={image.altText ? image.altText:"project details"}
+						<Image data={image} alt={image.altText ? image.altText:"project details"}
 						/>
 				</button>
 			{/each}

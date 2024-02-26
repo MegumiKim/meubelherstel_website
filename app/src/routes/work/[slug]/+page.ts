@@ -1,6 +1,6 @@
 import { error } from '@sveltejs/kit';
 import type { PageLoad } from './$types';
-import { getProject } from '$lib/utils/sanity';
+import { getProject } from '$lib/queries/sanity';
 
 export const ssr = true;
 

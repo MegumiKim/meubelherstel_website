@@ -1,5 +1,5 @@
 import imageUrlBuilder from '@sanity/image-url';
-import { client } from './sanity';
+import { client } from '../queries/sanity';
 
 export let data;
 export let alt;

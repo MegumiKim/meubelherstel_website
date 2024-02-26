@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
-	import { getAbout, type About } from '$lib/utils/sanity';
+	import { getAbout, type About } from '$lib/queries/sanity';
 	import { PortableText } from '@portabletext/svelte';
 
 	export let aboutData = {

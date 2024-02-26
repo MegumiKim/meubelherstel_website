@@ -3,6 +3,7 @@ import { createClient } from '@sanity/client';
 import type { Slug } from '@sanity/types';
 import groq from 'groq';
 import { PUBLIC_SANITY_DATASET, PUBLIC_SANITY_PROJECT_ID } from '$env/static/public';
+import { image } from './assets';
 
 if (!PUBLIC_SANITY_PROJECT_ID || !PUBLIC_SANITY_DATASET) {
 	throw new Error('Did you forget to run sanity init --env?');
@@ -53,9 +54,9 @@ export async function getHome() {
 	return await client.fetch(groq`*[_type == "home"]{
 			title,
 			tagline,
+			'mainImage':mainImage.${image},
 			featured{
 			heading,
-			'mainImage':mainImage.asset -> url,
 				service[]{
 				title,
 				projectSlug,
