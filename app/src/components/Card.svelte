@@ -12,16 +12,18 @@
 	href={`/work/${project.slug}`}
 > -->
 
-<a href={`/work/${project.slug}`} class="project-card">
+<div class="project-card">
 	{#if project.image}
-		<Image data={project.image} alt={project.image.altText}/>
+	<Image data={project.image} alt={project.image.altText}/>
 	{:else}
 	<Image data="/placeholder.jpg" alt={project.title}/>
 	{/if}
 	<h3 class="opacity-100 sm:opacity-0">
 		{project.title}
 	</h3>
-</a>
+	<a href={`/work/${project.slug}`} >
+	</a>
+</div>
 
 <style>
 
@@ -29,16 +31,18 @@
 .project-card{
 	position: relative;
 	overflow: hidden;
-aspect-ratio: 1;
+	aspect-ratio: 1;
 
 }
 
 	h3{
 		width: 100%;
+		text-align: center;
 		position: absolute;
 		bottom: 0;
-		padding: 1em 2em;
-		min-height: 30%;
+		padding: .5em;
+		height: fit-content;
+		min-height: 50%;
 		text-align: center;
 		background-color:rgb(255, 255, 255, .75);
 		font-size:2rem;
@@ -47,7 +51,17 @@ aspect-ratio: 1;
 		transition: opacity .5s;
 	}
 
-	a:hover > h3 {
+	.project-card:hover > h3 {
 	opacity: 1;
 	}
+
+	a::after {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+}
+
 </style>
