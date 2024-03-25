@@ -1,7 +1,7 @@
 import {visionTool} from '@sanity/vision'
 import {defineConfig} from 'sanity'
 import {deskTool} from 'sanity/desk'
-import {schemaTypes} from './schemas'
+import {schemaTypes} from './schemas/utils'
 import {media} from 'sanity-plugin-media'
 
 export const projectId = 'egeioo87'

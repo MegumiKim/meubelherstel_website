@@ -7,7 +7,6 @@
 	let home = data.data[0];
 	const components = {};
 
-	console.log(home);
 	
 </script>
 

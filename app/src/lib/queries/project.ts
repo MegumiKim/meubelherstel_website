@@ -1,5 +1,5 @@
 import groq from 'groq';
-import { image } from './assets.js';
+import { image } from './image.js';
 import { contentBlocks } from './contentBlocks.js';
 
 //Thumbnail query

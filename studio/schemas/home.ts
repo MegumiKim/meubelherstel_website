@@ -24,7 +24,7 @@ export default defineType({
     defineField({
       name: 'tagline',
       title: 'Tag line',
-      type: 'blockContent',
+      type: 'text',
       description: 'Tag line on the home page below the main image.',
     }),
 

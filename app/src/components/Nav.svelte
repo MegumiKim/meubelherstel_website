@@ -39,8 +39,8 @@
 			on:click={toggleMenu}>HOME</a
 		>
 		<a
-			class=" {currentPage === '/work' ? 'font-extrabold' : ''} hover:outline px-3 py-2 outline-1"
-			href="/work"
+			class=" {currentPage === '/works' ? 'font-extrabold' : ''} hover:outline px-3 py-2 outline-1"
+			href="/works"
 			on:click={toggleMenu}>PROJECTEN</a
 		>
 		<a

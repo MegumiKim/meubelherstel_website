@@ -1,15 +1,10 @@
 <script lang="ts">
 	import type { Project } from '$lib/queries/sanity';
-	import Image from './Image.svelte';
+	import Image from '../../components/Image.svelte';
 	export let project: Project;
-	
 	
 </script>
 
-<!-- <a
-	class="outline-slate-300 relative overflow-hidden aspect-square max-h-80 sm:h-[400px]"
-	href={`/work/${project.slug}`}
-> -->
 
 <div class="project-card">
 	{#if project.image}
@@ -20,7 +15,7 @@
 	<h3 class="opacity-100 sm:opacity-0">
 		{project.title}
 	</h3>
-	<a href={`/work/${project.slug}`} >
+	<a href={`/works/${project.slug}`} >
 	</a>
 </div>
 

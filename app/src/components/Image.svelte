@@ -5,10 +5,7 @@
 	export let alt= '';
   export let loading = 'lazy'
 
-
 	const { imageUrl, srcSet, sizes } = createImageAttributes(data.url);
-  console.log('imageUrl', imageUrl);
-  
 </script>
 
 <img 
@@ -23,6 +20,6 @@
     img {
       object-fit: cover;
       height: 100%;
-     width: 100%;
+      width: 100%;
     }
   </style>
