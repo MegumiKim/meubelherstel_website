@@ -1,25 +1,10 @@
-// import { error } from '@sveltejs/kit';
-// import type { PageLoad } from './$types';
-import { getProjects } from '$lib/queries/sanity';
-
-// export const load = (async () => {
-// 	const data = await getProjects();
-// 	console.log(data);
-
-// 	if (data) {
-// 		console.log('data', data);
-
-// 		// return data;
-// 	}
-
-// 	throw error(404, 'Not found');
-// }) satisfies PageLoad;
+import { getAllWorks } from '$lib/queries/sanity';
 
 export async function load() {
-	const data = await getProjects();
-	// console.log(projects);
+	const data = await getAllWorks();
+	// console.log(data);
 	if (!data) {
-		return console.log('err');
+		return { status: 404 };
 	}
 	return { data };
 }

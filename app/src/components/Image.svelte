@@ -1,11 +1,15 @@
 <script>
-	import { createImageAttributes } from "$lib/utils/image";
+	import CustomUrlBuilder from "$lib/utils/customUrlBuilder";
+	// import { createImageAttributes } from "$lib/utils/image";
 
 	export let data;
 	export let alt= '';
   export let loading = 'lazy'
+  console.log('data', data);
+  
 
-	const { imageUrl, srcSet, sizes } = createImageAttributes(data.url);
+	const { imageUrl, srcSet, sizes } =  CustomUrlBuilder(data.url);
+
 </script>
 
 <img 

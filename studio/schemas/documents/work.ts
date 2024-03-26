@@ -37,10 +37,10 @@ export default defineType({
       name: 'title',
       type: 'string',
       group: 'project',
-      title: 'Title',
-      description: 'Project Tile: Short, catchy, and descriptive',
+      title: 'Project Title',
+      description: 'Required, max 50 characters',
       validation: (Rule) => [
-        Rule.required().max(30).error('A title is required (max 30 characters)'),
+        Rule.required().max(50).error('A title is required (max 50 characters)'),
       ],
     }),
     defineField({
@@ -66,7 +66,7 @@ export default defineType({
       group: 'project',
       title: 'Description',
       description: 'Short Description of the project',
-      rows: 3,
+      rows: 7,
     }),
     defineField({
       name: 'location',
@@ -88,6 +88,7 @@ export default defineType({
       group: 'project',
       title: 'Image Gallery',
       description: 'Upload project images',
+      options: {selectionType: 'multiple', layout: 'grid'},
     },
     // defineField({
     //   name: 'image',
@@ -117,7 +118,7 @@ export default defineType({
   preview: {
     select: {
       title: 'title',
-      media: 'image',
+      media: 'gallery.images[0]',
     },
     prepare({title, media}) {
       return {

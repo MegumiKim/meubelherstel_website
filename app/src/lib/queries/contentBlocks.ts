@@ -5,7 +5,8 @@ export const contentBlocks = groq`
 'contentBlocks': contentBlocks[]{
   _type == 'imageObject' => {
     'type': _type,
-   'image':${image}
+   'image':${image},
+   caption
   },
   _type == 'richText' => {
     'type': _type,

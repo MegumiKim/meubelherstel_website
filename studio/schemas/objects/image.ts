@@ -10,15 +10,22 @@ export default defineType({
     hotspot: true,
     accept: 'image/png, image/jpeg',
   },
+  fields: [
+    {
+      name: 'caption',
+      type: 'string',
+      title: 'Caption',
+    },
+  ],
   preview: {
     select: {
+      title: 'altText',
       media: 'image',
-      alt: 'altText',
     },
-    prepare({media, alt}) {
+    prepare({title, media}) {
       return {
-        media,
-        alt,
+        title: title || 'Image',
+        media: media || ImageIcon,
       }
     },
   },

@@ -1,21 +1,22 @@
 <script lang="ts">
-	import type { Project } from '$lib/queries/sanity';
+	// import type { Project } from '$lib/queries/sanity';
 	import Image from '../../components/Image.svelte';
-	export let project: Project;
+	export let project: any = {};
+	console.log(project);
 	
 </script>
 
 
 <div class="project-card">
-	{#if project.image}
-	<Image data={project.image} alt={project.image.altText}/>
+	{#if project.mainImage}
+	<Image data={project.mainImage.asset} alt={project.mainImage.asset.altText}/>
 	{:else}
 	<Image data="/placeholder.jpg" alt={project.title}/>
 	{/if}
 	<h3 class="opacity-100 sm:opacity-0">
 		{project.title}
 	</h3>
-	<a href={`/works/${project.slug}`} >
+	<a href={`/work/${project.slug}`} >
 	</a>
 </div>
 

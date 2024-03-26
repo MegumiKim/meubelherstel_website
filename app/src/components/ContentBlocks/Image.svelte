@@ -1,5 +1,6 @@
 <script>
-	import { transformImage } from '../lib/utils/transformImage.js';
+	//Not used in this project
+	import { transformImage } from '$lib/utils/transformImage.js';
 	export let asset;
 	export let focalPoint;
 	export let transforms = [
@@ -26,6 +27,7 @@
 	);
 </script>
 
+<!-- svelte-ignore a11y-missing-attribute -->
 <img
 	src={images.src()}
 	srcset={images.srcset()}

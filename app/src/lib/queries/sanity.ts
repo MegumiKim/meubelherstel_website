@@ -74,17 +74,17 @@ export async function getHome() {
 				projectSlug,
 			'imageUrl':image.asset->url 
 			}
-			}}
+			},
+			${about}
 			`);
 }
 
-export async function getAbout() {
-	return await client.fetch(groq`*[_type == "about"]{
-		title,
-		body,
-		'image':mainImage.asset -> url
-	}`);
-}
+export const about = groq`
+about{
+	title,
+	body,
+'image':mainImage.${image},
+}}`;
 
 export async function getContact(): Promise<Contact> {
 	return await client.fetch(groq`*[_type == "contact"]{

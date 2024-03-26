@@ -2,6 +2,7 @@
 	import Image from '../Image.svelte';
 	import RichText from './RichText.svelte';
 	import Quote from './Quote.svelte';
+	import Caption from '../Caption.svelte';
 
 	// import { classNames } from '../lib/utils/classNames.js';
 
@@ -9,11 +10,12 @@
 	const blockTypes = {
 		richText: RichText,
 		quote: Quote,
-		// imageObject: Image,
 	};
+
+	
 </script>
 
-<div class="grid grid-cols-6 md:grid-cols-12 text-xl font-light gap-10 my-5">
+<div class="grid grid-cols-6 md:grid-cols-12 text-xl font-light gap-10 my-10">
 
 	{#each blocks || [] as {type, ...data }}
 		{#if type === 'richText' }
@@ -23,7 +25,9 @@
 
 		{:else if type === 'imageObject'}
 		<div class="col col-span-6 md:col-span-6 ">
-			<Image data={data.image} alt={data.image.altText} />
+			<Caption caption={data.caption}>
+				<Image data={data.image} alt={data.image.altText} />
+			</Caption>
 		</div>
 		{:else if type === 'quote'}
 		<div class="col col-span-full sm:col-start-2 ">

@@ -6,18 +6,18 @@ import { contentBlocks } from './contentBlocks.ts';
 export const work = groq`
   _id,
   _type,
-  _updatedAt,
   "slug": slug.current,
   title,
-  date,
-  location,
-  description,
-  "gallery": gallery.images[]{${image}},
-projectCategory,
+  projectCategory,
+  "mainImage": gallery.images[0]{${image}},
 `;
 
 export const workBySlug = groq`
 *[_type == "work" && slug.current == $slug][0]{
+  date,
+  location,
+  description,
+  "gallery": gallery.images[]{${image}},
   ${work}
   ${contentBlocks}
 }

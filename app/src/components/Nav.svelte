@@ -8,7 +8,6 @@
 	function toggleMenu() {
 		showMenu = !showMenu;
 	}
-	console.log(currentPage);
 
 	// Indicate the current page in NAV item
 	onMount(() => {
@@ -34,19 +33,29 @@
 			: 'hidden'} sm:flex sm:flex-row sm:m-auto sm:py-0"
 	>
 		<a
-			class="{currentPage === '/' ? 'font-extrabold' : ''} hover:outline px-3 py-2 outline-1"
+			class="{currentPage === '/' ? 'font-extrabold' : ''}"
 			href="/"
 			on:click={toggleMenu}>HOME</a
 		>
 		<a
-			class=" {currentPage === '/works' ? 'font-extrabold' : ''} hover:outline px-3 py-2 outline-1"
-			href="/works"
+			class=" {currentPage === '/work' ? 'font-extrabold' : ''}"
+			href="/work"
 			on:click={toggleMenu}>PROJECTEN</a
 		>
 		<a
-			class="{currentPage === '/contact' ? 'font-extrabold' : ''} hover:outline px-3 py-2 outline-1"
+			class="{currentPage === '/contact' ? 'font-extrabold' : ''}"
 			href="/contact"
 			on:click={toggleMenu}>CONTACT</a
 		>
 	</nav>
 </div>
+
+<style>
+	a:hover{
+		outline: 1px solid gray;
+
+	}
+	a{
+		padding: 0.5em;
+	}
+</style>

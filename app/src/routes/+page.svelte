@@ -1,12 +1,19 @@
 <script lang="ts">
-	import { PortableText } from '@portabletext/svelte';
 	import About from '../components/About.svelte';
 	import Image from '../components/Image.svelte';
 
 	export let data;
 	let home = data.data[0];
+	let about = home.about || {
+		title: '',
+		body: '',
+		image: {
+			url: '',
+		},
+	};
 	const components = {};
 
+	console.log(home);
 	
 </script>
 
@@ -14,27 +21,17 @@
 	<section>
 		<div class="relative">
 	<Image data={home.mainImage} alt={home.title} />
-			<!-- <img
-				src={home.mainImage ? home.mainImage : '/tools.jpg'}
-				alt=""
-			/> -->
 			<h1
 				class="text-xl sm:text-5xl font-extrabold my-5 sm:m-0 sm:absolute sm:bottom-0 sm:bg-white sm:p-4 bg-opacity-10"
 			>
 				{home.title}
 			</h1>
 		</div>
-		{#if home?.tagline}
 			<div class="text-center my-10 sm:my-20 text-xl sm:text-2xl font-light">
-				<PortableText value={home.tagline} {components} />
+				<p>{home.tagline ||"" }</p>
 			</div>
-		{/if}
 	</section>
-
-	<section>
-		<About />
-	</section>
-
+		<About aboutData={about}/>
 	<section>
 		<div class="sm:mt-20">
 			{#if home?.featured}
