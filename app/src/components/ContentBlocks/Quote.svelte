@@ -12,7 +12,7 @@
 
 <style>
 	blockquote {
-		font-size: 2em;
+		font-size: 1.3em;
 		font-style: italic;
 		border-left: 10px solid #333;
 		text-indent: 30px;

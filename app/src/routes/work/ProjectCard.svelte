@@ -1,11 +1,8 @@
 <script lang="ts">
-	// import type { Project } from '$lib/queries/sanity';
 	import Image from '../../components/Image.svelte';
 	export let project: any = {};
-	console.log(project);
 	
 </script>
-
 
 <div class="project-card">
 	{#if project.mainImage}
@@ -19,9 +16,7 @@
 	<a href={`/work/${project.slug}`} >
 	</a>
 </div>
-
 <style>
-
 
 .project-card{
 	position: relative;
@@ -40,7 +35,7 @@
 		min-height: 50%;
 		text-align: center;
 		background-color:rgb(255, 255, 255, .75);
-		font-size:2rem;
+		font-size:1.5em;
 		font-weight: bold;
 		margin: auto;
 		transition: opacity .5s;

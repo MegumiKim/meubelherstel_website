@@ -15,7 +15,7 @@
 	
 </script>
 
-<div class="grid grid-cols-6 md:grid-cols-12 text-xl font-light gap-10 my-10">
+<div class="grid grid-cols-6 md:grid-cols-12 text-xl font-light gap-10 mt-24">
 
 	{#each blocks || [] as {type, ...data }}
 		{#if type === 'richText' }
@@ -30,7 +30,7 @@
 			</Caption>
 		</div>
 		{:else if type === 'quote'}
-		<div class="col col-span-full sm:col-start-2 ">
+		<div class="col col-span-full ">
 			<svelte:component this={blockTypes[type]} {...data} />
 		</div>
 		{/if}
