@@ -1,37 +1,37 @@
 <script lang="ts">
-	import { PortableText } from '@portabletext/svelte';
-	import type { Project } from '$lib/utils/sanity';
-	import Carousel from './Carousel.svelte';
-	import Spinner from '../../../components/Spinner.svelte';
+import Spinner from '../../../components/Spinner.svelte';
+import ContentBlocks from '../../../components/ContentBlocks/ContentBlocks.svelte';
+import Carousel from '../../../components/ContentBlocks/Carousel.svelte';
+export let data ={}
 
-	export let data: Project;
-	const components = {};
+
 </script>
 
-<section class="post flex flex-col md:flex-row md:gap-6">
+<section class="post text-xl font-light">
 	{#if data}
-		<div class="project-images md:order-2">
-			{#if data.images?.length}
-				<Carousel images={data.images} />
-			{/if}
-		</div>
-		<div class="project-text md:order-1">
-			<h1 class="post__title">{data.title}</h1>
-			{#if data.category}
-				<p class="font-bold mb-5">{`# ${data.category}`}</p>
-			{/if}
-			<div class="flex gap-10">
-				{#if data.date}
-					<p><i class="fa-regular fa-calendar" /> {data.date}</p>
-				{/if}
-				{#if data.date}
-					<p><i class="fa-solid fa-location-dot" /> {data.location}</p>
+		<div class="flex gap-10 flex-col lg:flex-row">
+			<div class="project-images md:order-2">
+				{#if data.gallery}
+					<Carousel images={data.gallery} />
 				{/if}
 			</div>
-			<div class="mx-auto mt-5 max-w-screen-sm text-xl font-light">
-				<PortableText value={data.description} {components} />
+			<div class="project-text md:order-1">
+				<h1 class="post__title">{data.title}</h1>
+				<div class="flex gap-10">
+					{#if data.projectCategory}
+						<p class="font-bold mb-5">{`# ${data.projectCategory}`}</p>
+					{/if}
+					{#if data.date}
+						<p><i class="fa-regular fa-calendar" /> {data.date}</p>
+					{/if}
+					{#if data.date}
+						<p><i class="fa-solid fa-location-dot" /> {data.location}</p>
+					{/if}
+				</div>
+					<p>{data.description}</p>
 			</div>
 		</div>
+		<ContentBlocks blocks={data.contentBlocks} />
 	{:else}
 		<Spinner />
 	{/if}
@@ -46,3 +46,4 @@
 		flex: 3;
 	}
 </style>
+

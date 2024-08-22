@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type { Contact } from '$lib/utils/sanity.js';
+	import type { Contact } from '$lib/queries/sanity.js';
 import ContactForm from '../../components/ContactForm.svelte';
 	export let data: { data: Contact[] };
 	const contact = data.data?.[0];

@@ -1,7 +1,8 @@
 <script lang="ts">
-	import Image from "../../../components/Image.svelte";
+	import Image from "../Image.svelte";
 
-	export let images: { url: string; altText: string }[];
+	export let images = [];
+	
 	let currentIndex = 0;
 
 	function next() {
@@ -14,9 +15,9 @@
 
 <div>
 	<div class="carousel-container">
-		{#each images as image, i (image.url)}
+		{#each images as image, i (image.asset.url)}
 			<div class="carousel-slide" style="transform: translateX({i - currentIndex}00%)">
-				<Image data={image.url} alt={image.altText ? image.altText:"project details"}/>
+				<Image data={image.asset} alt={image.asset.altText ? image.altText:"project details"}/>
 			</div>
 		{/each}
 
@@ -29,7 +30,7 @@
 		<div class="flex-1 gap-4 my-5 slide-nav">
 			{#each images as image, i}
 				<button on:click={() => (currentIndex = i)} class="nav-image {i === currentIndex ? 'active' : ''}">
-						<Image data={image.url} alt={image.altText ? image.altText:"project details"}
+						<Image data={image.asset} alt={image.asset.altText ? image.asset.altText:"project details"}
 						/>
 				</button>
 			{/each}

@@ -3,6 +3,8 @@ import { createClient } from '@sanity/client';
 import type { Slug } from '@sanity/types';
 import groq from 'groq';
 import { PUBLIC_SANITY_DATASET, PUBLIC_SANITY_PROJECT_ID } from '$env/static/public';
+import { image } from './image';
+import { worksQueryWithPagination, workBySlug } from './work';
 
 if (!PUBLIC_SANITY_PROJECT_ID || !PUBLIC_SANITY_DATASET) {
 	throw new Error('Did you forget to run sanity init --env?');
@@ -14,6 +16,17 @@ export const client = createClient({
 	useCdn: false, // `false` if you want to ensure fresh data
 	apiVersion: '2023-03-20' // date of setup
 });
+
+//fetch multiple works
+export async function getAllWorks() {
+	return await client.fetch(worksQueryWithPagination);
+}
+//fetch single work by slug
+export async function getSingleWorkBySlug(slug: string) {
+	return await client.fetch(workBySlug, {
+		slug
+	});
+}
 
 export async function getProject(slug: string): Promise<Project> {
 	return await client.fetch(
@@ -53,25 +66,25 @@ export async function getHome() {
 	return await client.fetch(groq`*[_type == "home"]{
 			title,
 			tagline,
+			'mainImage':mainImage.${image},
 			featured{
 			heading,
-			'mainImage':mainImage.asset -> url,
 				service[]{
 				title,
 				projectSlug,
 			'imageUrl':image.asset->url 
 			}
-			}}
+			},
+			${about}
 			`);
 }
 
-export async function getAbout() {
-	return await client.fetch(groq`*[_type == "about"]{
-		title,
-		body,
-		'image':mainImage.asset -> url
-	}`);
-}
+export const about = groq`
+about{
+	title,
+	body,
+'image':mainImage.${image},
+}}`;
 
 export async function getContact(): Promise<Contact> {
 	return await client.fetch(groq`*[_type == "contact"]{

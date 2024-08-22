@@ -4,11 +4,27 @@ export default defineType({
   name: 'home',
   title: 'Home',
   type: 'document',
+  groups: [
+    {
+      name: 'hero',
+      title: 'Hero Section',
+      default: true,
+    },
+    {
+      name: 'about',
+      title: 'About',
+    },
+    {
+      name: 'featured',
+      title: 'Featured',
+    },
+  ],
   fields: [
     defineField({
       name: 'title',
       title: 'Title',
       type: 'string',
+      group: 'hero',
       description: 'Title on the home page',
     }),
 
@@ -16,6 +32,7 @@ export default defineType({
       name: 'mainImage',
       title: 'Main image',
       type: 'image',
+      group: 'hero',
       description: 'Main image on the home page',
       options: {
         hotspot: true,
@@ -24,14 +41,17 @@ export default defineType({
     defineField({
       name: 'tagline',
       title: 'Tag line',
-      type: 'blockContent',
-      description: 'Tag line on the home page below the main image.',
+      type: 'text',
+      group: 'hero',
+      description: 'Catchy tag line to capture the attention of the visitor',
+      rows: 3,
     }),
 
     defineField({
       name: 'featured',
       title: 'Featured',
       type: 'object',
+      group: 'featured',
       description: 'Features section on the front page below "about" section',
       fields: [
         {
@@ -74,5 +94,6 @@ export default defineType({
         },
       ],
     }),
+    defineField({name: 'about', title: 'About', type: 'about', group: 'about'}),
   ],
 })

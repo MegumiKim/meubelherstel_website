@@ -1,5 +1,5 @@
 import imageUrlBuilder from '@sanity/image-url';
-import { client } from '../queries/sanity';
+import { client } from '../sanity/sanity.js';
 
 export let data;
 export let alt;
@@ -17,7 +17,6 @@ export function createImageAttributes(source) {
 	const sizes =
 		screenSizes.map((size) => `(max-width: ${size}px) ${size}px`).join(', ') +
 		`, ${screenSizes[0]}px`;
-	// console.log(urlFor(source, 1920));
 
 	return {
 		imageUrl: urlFor(source, 1920), // Default image URL for src attribute

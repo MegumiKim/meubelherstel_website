@@ -1,29 +1,20 @@
 <script lang="ts">
-	import { onMount } from 'svelte';
-	import { getProjects, type Project } from '$lib/utils/sanity';
-	import Card from '../../components/Card.svelte';
+
 	import Spinner from '../../components/Spinner.svelte';
+	import ProjectCard from './ProjectCard.svelte';
 
-	export let projects: Project[] = [];
+	export let data;
+	
+	let projects = data.data || [];
 
-	onMount(async () => {
-		try {
-			const data = await getProjects();
-			if (data) {
-				projects = data;
-			}
-		} catch (error) {
-			console.error(error);
-		}
-	});
 </script>
 
 <section class="">
 	<h1 class="font-extrabold text-5xl">Projecten</h1>
 	{#if projects.length}
-		<div class="flex flex-wrap mt-10 gap-5 justify-center sm:justify-start">
+		<div class="grid sm:grid-cols-2 md:grid-cols-3 mt-10 gap-5 justify-center sm:justify-start">
 			{#each projects as project}
-				<Card {project} />
+			<ProjectCard {project} />
 			{/each}
 		</div>
 	{:else}
