@@ -5,7 +5,6 @@
 	export let data;
 	export let alt= '';
   export let loading = 'lazy'
-  console.log('data', data);
   
 
 	const { imageUrl, srcSet, sizes } =  CustomUrlBuilder(data.url);

@@ -13,7 +13,6 @@
 	};
 	const components = {};
 
-	console.log(home);
 	
 </script>
 
