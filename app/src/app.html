@@ -17,6 +17,14 @@
 			rel="stylesheet"
 		/>
 		<script src="https://kit.fontawesome.com/175ecb4e25.js" crossorigin="anonymous"></script>
+		<script>
+			window.goatcounter = { no_onload: true };
+			window.addEventListener('popstate', function (e) {
+				window.goatcounter.count({
+					path: location.pathname + location.search + location.hash
+				});
+			});
+		</script>
 		<script
 			data-goatcounter="https://meubelherstel.goatcounter.com/count"
 			async
