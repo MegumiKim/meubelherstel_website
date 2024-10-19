@@ -5,7 +5,8 @@ import gallery from '../objects/gallery.ts'
 import quote from '../objects/quote.ts'
 import richText from '../objects/richText.ts'
 import work from '../documents/work.ts'
-import image from '../objects/image.js'
+import image from '../objects/image.ts'
+import siteSettings from '../documents/site-settings.ts'
 
 export const schemaTypes = [
   //
@@ -21,4 +22,5 @@ export const schemaTypes = [
   work,
   home,
   contact,
+  siteSettings,
 ]

@@ -5,6 +5,7 @@ import groq from 'groq';
 import { PUBLIC_SANITY_DATASET, PUBLIC_SANITY_PROJECT_ID } from '$env/static/public';
 import { image } from './image';
 import { worksQueryWithPagination, workBySlug } from './work';
+import { siteSettingsQuery } from './siteSettings';
 
 if (!PUBLIC_SANITY_PROJECT_ID || !PUBLIC_SANITY_DATASET) {
 	throw new Error('Did you forget to run sanity init --env?');
@@ -97,6 +98,10 @@ export async function getContact(): Promise<Contact> {
 	}`);
 }
 
+export async function getSiteSetting() {
+	return await client.fetch(siteSettingsQuery);
+}
+
 export interface Project {
 	_type: 'project';
 	title: string;
@@ -147,3 +152,13 @@ export interface About {
 	body: PortableTextBlock[];
 	image: string;
 }
+// export interface SiteSetting {
+// 	title: string;
+// 	description: string;
+// 	image: string;
+// 	orgNumber?: string | null;
+// 	phone: string;
+// 	address: string;
+// 	email: string;
+// 	instagram: string;
+// }
