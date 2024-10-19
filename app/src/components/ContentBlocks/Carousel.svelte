@@ -73,19 +73,26 @@
 	}
 
 	.fa-solid {
-		background-color: white;
-		padding: 0.5rem;
+		color: white;
+		/* margin: 0 0.5em; */
 	}
+
 	.fa-circle-chevron-left {
 		position: absolute;
-		bottom: 50%;
+		top: 45%;
+		left: 5%;
 		font-size: xx-large;
+	background: #000;
+	border-radius: 50%;
 	}
 	.fa-circle-chevron-right {
 		position: absolute;
-		bottom: 50%;
-		right: 0%;
+		top: 45%;
+		right: 5%;
 		font-size: xx-large;
+		background: #000;
+		overflow: hidden;
+		border-radius: 50%;
 	}
 
 	@media (min-width: 800px) {

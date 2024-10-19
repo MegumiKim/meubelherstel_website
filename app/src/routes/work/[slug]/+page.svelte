@@ -17,9 +17,9 @@ export let data ={}
 			</div>
 			<div class="project-text md:order-1">
 				<h1 class="post__title">{data.title}</h1>
-				<div class="flex gap-10">
+				<div class="sm:flex gap-10 my-6">
 					{#if data.projectCategory}
-						<p class="font-bold mb-5">{`# ${data.projectCategory}`}</p>
+						<p class="font-bold">{`# ${data.projectCategory}`}</p>
 					{/if}
 					{#if data.date}
 						<p><i class="fa-regular fa-calendar" /> {data.date}</p>
