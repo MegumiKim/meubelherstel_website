@@ -72,7 +72,7 @@ export async function getHome() {
 				service[]{
 				title,
 				projectSlug,
-			'imageUrl':image.asset->url 
+			'image':image.${image} 
 			}
 			},
 			${about}
