@@ -14,7 +14,7 @@ import Image from './Image.svelte';
 
 {#if aboutData}
 
-		<section class="flex flex-col sm:flex-row gap-3 max-w-[400px] sm:max-w-[800px]">
+		<section class="flex flex-col sm:flex-row gap-3 sm:gap-10 max-w-[400px] sm:max-w-[800px]">
 	
 				<div class="img-wrapper">
 					{#if aboutData?.image}
